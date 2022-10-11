@@ -1,0 +1,118 @@
+$themeColor: $colorPrimary !default;
+$disabledOpacity: 0.5 !default;
+
+$bgColor: #D9DBE9 !default;
+$railBorderRadius: 0.5rem !default;
+
+$dotBgColor: $colorBackgroundLight !default;
+$dotBgColorDisable: #ccc !default;
+$dotBorderRadius: 50% !default;
+
+$tooltipBgColor: #DAFFED !default;
+$tooltipColor: $colorPrimary !default;
+$tooltipBorderRadius: 1rem !default;
+$tooltipPadding: 0.5rem 1rem !default;
+$tooltipMinWidth: 1.5rem !default;
+$tooltipArrow: 10px !default;
+
+$stepBorderRadius: 50% !default;
+$stepBgColor: rgba(0, 0, 0, 0.16) !default;
+
+$labelFontSize: 2rem !default;
+
+/* component style */
+.vue-slider-disabled {
+  opacity: $disabledOpacity;
+  cursor: not-allowed;
+}
+
+/* rail style */
+.vue-slider-rail {
+  background-color: $bgColor;
+  border-radius: $railBorderRadius;
+}
+
+/* process style */
+.vue-slider-process {
+  background-color: $themeColor;
+  border-radius: $railBorderRadius;
+}
+
+/* mark style */
+.vue-slider-mark {
+  z-index: 1;
+
+  &:first-child,
+  &:last-child {
+    .vue-slider-mark-step {
+      display: none;
+    }
+  }
+
+  @at-root &-step {
+    width: 100%;
+    height: 100%;
+    border-radius: $stepBorderRadius;
+    background-color: $stepBgColor;
+
+    &-active {
+    }
+  }
+
+  @at-root &-label {
+    font-size: $labelFontSize;
+    white-space: nowrap;
+
+  }
+}
+
+/* dot style */
+.vue-slider-dot {
+  @at-root &-handle {
+    cursor: pointer;
+    width: 1.75rem;
+    height: 1.75em;
+    border-radius: $dotBorderRadius;
+    background-color: $dotBgColor;
+    box-sizing: border-box;
+    border: 2px solid $colorPrimary;
+    transform: translate(-25%, -25%);
+    transition: all 0.25s ease;
+
+    @at-root &-focus {
+        outline: 4px solid $colorPrimarySubtle;
+    }
+    @at-root &-disabled {
+      cursor: not-allowed;
+      background-color: $dotBgColorDisable;
+    }
+  }
+
+  @at-root &-tooltip {
+    @at-root &-inner {
+      font-size: 1.125rem;
+      font-weight: bold;
+      letter-spacing: 0.75px;
+      white-space: nowrap;
+      padding: $tooltipPadding;
+      min-width: $tooltipMinWidth;
+      text-align: center;
+      color: $tooltipColor;
+      border-radius: $tooltipBorderRadius;
+      background-color: $tooltipBgColor;
+      box-sizing: content-box;
+    }
+  }
+
+  @at-root &-tooltip-wrapper {
+    opacity: 0;
+    transition: all 0.3s;
+    @at-root &-show {
+      opacity: 1;
+    }
+  }
+}
+
+.vue-slider-dot-tooltip-top{
+    top: -1.25rem;
+}

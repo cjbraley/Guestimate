@@ -1,0 +1,88 @@
+/*
+    BREAKPOINTS
+*/
+$breakpointTablet: 650px;
+$breakpointDesktop: 1180px;
+
+/*
+    LAYOUT
+*/
+$mobileSidePadding: 1rem;
+$desktopMaxWidth: 1440px;
+
+
+/*
+    SPACING
+*/
+
+$spacingXS: 0.625rem; //10
+$spacingS: 0.825rem; //14
+$spacingM: 1.25rem; // 20
+$spacingL: 2.5rem; // 40
+$spacingXL: 4rem; // 64
+$spacingXXL: 5.75rem; // 100
+
+/*
+    FONTS
+*/
+
+// font-family
+$fontFamilyHeader: "Nunito";
+$fontFamilyBody: "Roboto";
+
+// Font sizes - Mobile
+$fontSizeXXS: 0.625rem; // 10
+$fontSizeXS: 0.825rem; // 14
+$fontSizeS: 1rem; // 16
+$fontSizeM: 1.125rem; // 18 
+$fontSizeL: 1.25rem; // 20
+$fontSizeXL: 1.75rem; // 28
+
+// Font sizes - Desktop
+$fontSizeDesktopXXS: 0.625rem; // 10
+$fontSizeDesktopXS: 0.825rem; // 14
+$fontSizeDesktopS: 1rem; // 16
+$fontSizeDesktopM: 1.125rem; // 18 
+$fontSizeDesktopL: 1.375rem; // 24
+$fontSizeDesktopXL: 2.5rem; // 40
+$fontSizeDesktopXXL: 4rem; // 64
+
+
+/* 
+COLORS
+*/  
+
+// main
+$colorPrimary: #1B9C73;
+$colorPrimaryHover: #167d5c;
+$colorPrimarySubtle: #d1ebe3;
+
+$colorSecondary: #476BE8;
+$colorSecondaryHover: #3956BA;
+$colorSecondarySubtle: #DAE1FA;
+
+$colorTertiary: #EC677B;
+$colorTertiaryHover: #D45D6F;
+$colorTertiarySubtle: #FBE1E5;
+
+// fonts
+$colorFontDark: #051F21;
+$colorFontSubtle: #6C7774;
+
+
+// background
+$colorBackgroundLight: #FDFFFD;
+
+//other
+$colorError: #C30052;
+$colorDisabled: #E6E9E8;
+
+
+
+
+
+
+
+
+
+
