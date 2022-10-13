@@ -18,7 +18,7 @@ $desktopMaxWidth: 1440px;
 $spacingXS: 0.625rem; //10
 $spacingS: 0.825rem; //14
 $spacingM: 1.25rem; // 20
-$spacingL: 2.5rem; // 40
+$spacingL: 2.25rem; // 40
 $spacingXL: 4rem; // 64
 $spacingXXL: 5.75rem; // 100
 
@@ -32,21 +32,41 @@ $fontFamilyBody: "Roboto";
 
 // Font sizes - Mobile
 $fontSizeXXS: 0.625rem; // 10
-$fontSizeXS: 0.825rem; // 14
-$fontSizeS: 1rem; // 16
-$fontSizeM: 1.125rem; // 18 
-$fontSizeL: 1.25rem; // 20
-$fontSizeXL: 1.75rem; // 28
+$fontSizeXS: 0.75rem; // 14
+$fontSizeS: .825rem; // 16
+$fontSizeM: 1rem; // 18 
+$fontSizeL: 1.125rem; // 20
+$fontSizeXL: 1.5rem; // 28
+$fontSizeXXL: 1.75rem; // 28
 
 // Font sizes - Desktop
-$fontSizeDesktopXXS: 0.625rem; // 10
-$fontSizeDesktopXS: 0.825rem; // 14
-$fontSizeDesktopS: 1rem; // 16
+$fontSizeDesktopXS: 0.75rem; // 14
+$fontSizeDesktopS: 0.875rem; // 16
 $fontSizeDesktopM: 1.125rem; // 18 
-$fontSizeDesktopL: 1.375rem; // 24
-$fontSizeDesktopXL: 2.5rem; // 40
-$fontSizeDesktopXXL: 4rem; // 64
+$fontSizeDesktopL: 1.25rem; // 24
+$fontSizeDesktopXL: 1.5rem; // 40
+$fontSizeDesktopXXL: 2.125rem; // 40
+$fontSizeDesktopXXXL: 4rem; // 64
 
+
+// desktop: {
+//     xs: "0.75rem",
+//     s: "0.875rem",
+//     m: "1rem",
+//     l: "1.375rem",
+//     xl: "1.5rem",
+//     xxl: "2.5rem",
+//     xxxl: "4rem",
+// },
+// mobile: {
+//     xs: "0.75rem",
+//     s: "0.875rem",
+//     m: "1rem",
+//     l: "1.125rem",
+//     xl: "1.5rem",
+//     xxl: "1.75rem",
+//     xxxl: "2rem",
+// },
 
 /* 
 COLORS

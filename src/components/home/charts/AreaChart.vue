@@ -42,6 +42,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    tooltipAddTotal: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 // Run d3 update whenever props change
@@ -222,8 +226,8 @@ function onUpdate() {
     temp_text.remove();
 
     margin = {
-        top: 32,
-        right: (breakpoints.tablet.value ? max_tick_width : 0) + 8,
+        top: props.measures.length * 16,
+        right: max_tick_width + 8,
         bottom: 32,
         left: max_tick_width + 8,
     };
@@ -342,14 +346,16 @@ function resizeDots() {
 function updateTooltipDots() {
     d3TooltipDots = d3Chart.selectAll(".tooltip-dot").data(dotsData);
 
-    function createTooltipHtml(d) {
+    function createTooltipHtml(d, showTotal) {
+        let total = 0;
         let measureHTML = "";
         props.measures.forEach((meas) => {
             measureHTML += `
             <div class="d3tooltip-row">
                 <span>${meas.label}:</span>
-                <span>${formatter(props.data[d.year][meas.accessor])}</span>
+                <span>${formatter(props.data[d.year][meas.accessor] * meas.sign)}</span>
             </div>`;
+            total += props.data[d.year][meas.accessor] * meas.sign;
         });
         return `
                 <div class="d3tooltip-row">
@@ -357,6 +363,14 @@ function updateTooltipDots() {
                     <span>${d.year}</span>
                 </div>
                 ${measureHTML}
+                ${
+                    showTotal
+                        ? `<div class="d3tooltip-row">
+                        <span>Total:</span>
+                        <span>${formatter(total)}</span>
+                    </div>`
+                        : ""
+                }
         `;
     }
 
@@ -368,7 +382,7 @@ function updateTooltipDots() {
         .style("opacity", 0)
         .on("mouseenter", function (event, d) {
             d3Tooltip
-                .html(createTooltipHtml(d))
+                .html(createTooltipHtml(d, props.tooltipAddTotal))
                 .style("visibility", "visible")
                 .style(
                     "left",
@@ -390,7 +404,9 @@ function updateTooltipDots() {
 
 function resizeTooltipDots() {
     d3TooltipDots
-        .attr("r", dotRadius + 2)
+        // .style("opacity", 1)
+        // .attr("fill", "red")
+        .attr("r", dotRadius + breakpoints.desktop ? 8 : breakpoints.tablet ? 5 : 2)
         .attr("cx", (d) => x(d.year))
         .attr("cy", (d) => y(d.y));
 }
@@ -433,7 +449,7 @@ function updateLegend() {
     const legendCircleRadius = 6;
     const legendGap = 12;
     const legendxOffset = 16;
-    const legendyOffset = -32;
+    const legendyOffset = props.measures.length * -16;
 
     d3Chart
         .selectAll(".legend-rect")

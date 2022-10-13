@@ -1,9 +1,9 @@
 <template>
     <div class="wrapper" :class="`${color} ${small ? 'small' : ''}`">
         <div class="input-container" :class="`${color}`">
-            <label class="font--body" for="">{{ label }}</label>
+            <label class="font--small" for="">{{ label }}</label>
             <Field
-                class="font--subtitle"
+                class="font--body"
                 :class="`${noBorder ? 'no-border' : ''}`"
                 v-model="formattedVal"
                 @keydown="handleKeydown"
@@ -121,7 +121,6 @@ const handleKeydown = (e) => {
     width: 20rem;
 
     .input-container {
-        height: 5rem;
         position: relative;
         margin-bottom: $spacingXS;
 
@@ -133,7 +132,7 @@ const handleKeydown = (e) => {
             border-radius: 0.25rem;
 
             padding-bottom: $spacingXS;
-            padding-top: $spacingL;
+            padding-top: calc($fontSizeDesktopL + $spacingXS);
             padding-left: $spacingS;
             padding-right: $spacingS;
             transition: all 0.15s ease;
@@ -150,7 +149,7 @@ const handleKeydown = (e) => {
                 border: none;
                 border-bottom: 2px solid $colorPrimary;
                 border-radius: 0;
-                padding-bottom: 0;
+                padding-bottom: $spacingXS;
 
                 &:focus {
                     outline: none;
@@ -164,14 +163,13 @@ const handleKeydown = (e) => {
             left: $spacingS;
             text-transform: uppercase;
             font-weight: bold;
-
             color: $colorPrimary;
         }
 
         .icon {
             cursor: pointer;
-            height: 2rem;
-            width: 2rem;
+            height: 1.75rem;
+            width: 1.75rem;
             fill: $colorPrimary;
             stroke: none;
 
@@ -247,6 +245,15 @@ const handleKeydown = (e) => {
             top: initial;
             bottom: 0.125rem;
             transform: translateY(-50%);
+        }
+    }
+}
+@media (min-width: $breakpointDesktop) {
+    .wrapper {
+        .input-container {
+            input {
+                padding-top: calc($fontSizeDesktopM + $spacingS);
+            }
         }
     }
 }

@@ -9,11 +9,15 @@
             </RouterLink>
             <div class="nav-links">
                 <RouterLink to="/">
-                    <div class="nav-link font--button">Calculator</div>
+                    <div class="nav-link font--button">Home</div>
                 </RouterLink>
-                <RouterLink to="/contact">
+                <a
+                    ref="mailto:cbraley@protonmail.com"
+                    target="_blank"
+                    referrerpolicy="noreferer"
+                >
                     <div class="nav-link font--button">Contact</div>
-                </RouterLink>
+                </a>
             </div>
         </div>
     </nav>

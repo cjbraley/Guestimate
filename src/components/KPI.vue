@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="font--subtitle title" :class="`${color}`">{{ title }}</div>
-        <h2 v-if="breakpoints.desktop.value" class="subtitle">{{ value }}</h2>
+        <h3 v-if="breakpoints.desktop.value" class="subtitle">{{ value }}</h3>
         <h1 v-else class="subtitle">{{ value }}</h1>
     </div>
 </template>
@@ -31,8 +31,6 @@ const breakpoints = inject("breakpoints");
 
 <style lang="scss" scoped>
 .container {
-    margin-bottom: $spacingL;
-
     .title {
         margin-bottom: $spacingXS;
         font-weight: 500;

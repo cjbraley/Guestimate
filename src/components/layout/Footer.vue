@@ -12,18 +12,18 @@
                 <GithubIcon class="icon" />
             </a>
             <a href="mailto:cbraley@protonmail.com" target="_blank" referrerpolicy="noreferer">
-                <EmailIcon class="icon" />
+                <EmailIcon class="icon email" />
             </a>
         </div>
-        <p>&copy; {{ new Date().getFullYear() }} Guestimate</p>
+        <p>&copy; {{ new Date().getFullYear() }} Guestimate. All rights reserved.</p>
     </footer>
 </template>
 
 <script setup>
 // IMPORTS
 
-import LinkedInIcon from "../../assets/icons/linkedin.svg";
-import GithubIcon from "../../assets/icons/github.svg";
+import LinkedInIcon from "../../assets/icons/linkedin-outline.svg";
+import GithubIcon from "../../assets/icons/github-outline.svg";
 import EmailIcon from "../../assets/icons/email.svg";
 </script>
 
@@ -32,20 +32,34 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $spacingM;
+    gap: $spacingXS;
 
     border-top: 2px solid rgba($colorFontDark, 12%);
-    background-color: rgba($colorPrimary, 12%);
-    padding-top: $spacingM;
+    background-color: rgba($colorPrimary, 20%);
+    padding-top: $spacingL;
     padding-bottom: $spacingM;
+
+    p {
+        color: $colorFontSubtle;
+    }
 
     .media-container {
         display: flex;
         justify-content: center;
-        gap: $spacingXS;
+        gap: $spacingM;
 
         .icon {
             height: 2rem;
+            stroke: $colorPrimary;
+            fill: none;
+
+            &:hover {
+                stroke: $colorPrimaryHover;
+            }
+        }
+
+        .email {
+            stroke: none;
             fill: $colorPrimary;
 
             &:hover {

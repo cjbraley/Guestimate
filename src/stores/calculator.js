@@ -87,7 +87,7 @@ export const useCalculatorStore = defineStore({
             }
         },
         calculateFromInputs() {
-            console.log("CALCULATE FROM INPUTS");
+            // console.log("CALCULATE FROM INPUTS");
             // create base inputs
             const data = Array.apply(null, { length: MAX_YEARS }).map((val, i) => ({
                 year: i + 1,
@@ -172,6 +172,7 @@ export const useCalculatorStore = defineStore({
                 );
 
                 const incomeFromAssets = incomeFromStocks + incomeFromBonds + incomeFromCash;
+                const netIncome = year.income + incomeFromAssets - interestOnLiabilites;
                 const assets = previousYear.assets + savings + incomeFromAssets;
 
                 const netWorth = assets - liabilities;
@@ -195,6 +196,7 @@ export const useCalculatorStore = defineStore({
                     incomeFromBonds,
                     incomeFromCash,
                     incomeFromAssets,
+                    netIncome,
                     assets,
                     netWorth,
                     totalIncome,
@@ -210,7 +212,6 @@ export const useCalculatorStore = defineStore({
                 target: this.target,
                 years: data,
             };
-            console.log(this.results);
         },
     },
 });

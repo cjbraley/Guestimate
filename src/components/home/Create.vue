@@ -1,10 +1,7 @@
 <template>
     <div id="create" class="create content">
         <h2 class="title">Create Your Guestimate</h2>
-        <div v-if="breakpoints.desktop.value" class="subtitle font--subtitle">
-            Begin with your target savings amount and timeframe
-        </div>
-        <p v-else class="subtitle">Begin with your target savings amount and timeframe</p>
+        <p class="subtitle">Begin with your target savings amount and timeframe</p>
         <Input
             name="target"
             :val="store.target.amount"
@@ -27,7 +24,7 @@
         <div class="panel-container">
             <div class="panel">
                 <WalletIcon class="icon secondary" />
-                <div class="font--subtitle panel__title">Annual</div>
+                <h4 class="panel__title">Annual</h4>
                 <Input
                     name="income"
                     :val="store.inputs.income"
@@ -40,7 +37,7 @@
                 />
                 <div class="panel__input panel__input--blank" />
 
-                <div class="font--subtitle panel__title">Current</div>
+                <h4 class="panel__title">Current</h4>
                 <Input
                     name="assets"
                     :val="store.inputs.assets"
@@ -52,7 +49,7 @@
                     errorMessage="Oh no! Something isn't right"
                     tooltip="Your current assets. Stocks, bonds, cash, real estate and any other assets that generate income."
                 />
-                <div class="font--subtitle panel__title">Annual Growth Rate</div>
+                <h4 class="panel__title">Annual Growth Rate</h4>
                 <div class="panel__flex">
                     <Input
                         name="growthStocks"
@@ -96,7 +93,7 @@
 
             <div class="panel">
                 <CreditCardIcon class="icon tertiary" />
-                <div class="font--subtitle panel__title">Annual</div>
+                <h4 class="panel__title">Annual</h4>
                 <Input
                     name="expenses"
                     :val="store.inputs.expenses"
@@ -117,7 +114,7 @@
                     label="Debt Repayments"
                     tooltip="Your annual expenditure on debt repayments, e.g. mortgage payments"
                 />
-                <div class="font--subtitle panel__title">Current</div>
+                <h4 class="panel__title">Current</h4>
                 <Input
                     name="liabilities"
                     :val="store.inputs.liabilities"
@@ -128,7 +125,7 @@
                     label="Debt"
                     tooltip="Your current outstanding balance on debt, e.g. mortgage"
                 />
-                <div class="font--subtitle panel__title">Annual Interest Rate</div>
+                <h4 class="panel__title">Annual Interest Rate</h4>
                 <Input
                     name="interestRate"
                     :val="store.inputs.interestRateLiabilities"
@@ -143,7 +140,7 @@
             <h1 class="seperator">=</h1>
             <div class="panel">
                 <SaveIcon class="icon" />
-                <div class="font--subtitle panel__title">Annual</div>
+                <h4 class="panel__title">Annual</h4>
                 <Input
                     name="savings"
                     :val="store.inputs.income - store.inputs.expenses"
@@ -166,7 +163,7 @@
                     disabled
                     tooltip="Your annual savings & repayments. Repayments reduce the outstanding balance of your debt which increases your net worth, similar to saving."
                 />
-                <div class="font--subtitle panel__title">Current</div>
+                <h4 class="panel__title">Current</h4>
                 <Input
                     name="newWorth"
                     :val="store.inputs.assets - store.inputs.liabilities"
@@ -176,7 +173,7 @@
                     disabled
                     tooltip="Your current net worth. The difference between your assets and your liabilities (debt)"
                 />
-                <div class="font--subtitle panel__title">Portfolio Allocation</div>
+                <h4 class="panel__title">Portfolio Allocation</h4>
                 <div class="panel__flex">
                     <Input
                         name="allocationStocks"
@@ -384,6 +381,7 @@ function validate(value, name, pattern, min, max, formatter) {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: $spacingL;
 
     .title {
         margin-bottom: $spacingXS;
@@ -405,7 +403,6 @@ function validate(value, name, pattern, min, max, formatter) {
     }
 
     .panel-container {
-        margin-bottom: $spacingL;
         display: flex;
         flex-direction: column;
         gap: $spacingS;
@@ -416,14 +413,14 @@ function validate(value, name, pattern, min, max, formatter) {
             margin-bottom: auto;
         }
         .panel {
-            padding: $spacingL $spacingM $spacingS $spacingM;
+            padding: $spacingL $spacingM $spacingXS $spacingM;
             border-radius: 0.5rem;
             background-color: rgba($colorPrimary, 5%);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
             .icon {
-                height: 4rem;
-                width: 4rem;
+                height: 3.5rem;
+                width: 3.5rem;
                 margin-bottom: $spacingM;
                 fill: $colorPrimary;
 
@@ -436,13 +433,14 @@ function validate(value, name, pattern, min, max, formatter) {
             }
 
             &__title {
+                font-weight: normal;
                 color: $colorFontSubtle;
                 text-align: left;
                 margin-bottom: $spacingS;
             }
 
             &__input {
-                margin-bottom: $spacingS;
+                margin-bottom: $spacingXS;
             }
 
             &__input--blank {
