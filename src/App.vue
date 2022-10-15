@@ -13,7 +13,7 @@
 
 <script setup>
 // IMPORT
-import { onBeforeMount, onMounted, provide, ref } from "vue";
+import { onBeforeMount, onMounted, provide, ref, watch } from "vue";
 import { RouterView } from "vue-router";
 import { useBreakpoints } from "@vueuse/core";
 
@@ -40,6 +40,11 @@ onMounted(() => {
         showLoader.value = false;
     }, 1250);
 });
+
+// disable scroll while loader is active
+watch(() => {
+    document.getElementsByTagName("body")[0].style.overflow = isLoading.value ? "hidden" : null;
+}, isLoading);
 
 // BREAKPOINTS
 const defineBreakpoints = useBreakpoints({

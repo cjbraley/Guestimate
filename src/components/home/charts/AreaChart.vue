@@ -59,6 +59,8 @@ const formatter = useFormatter().currencyFormatter;
 
 // D3 INIT
 const containerRef = ref(null);
+const { width, height } = useElementSize(containerRef);
+
 const svgRef = ref(null);
 const chartRef = ref(null);
 const tooltipRef = ref(null);
@@ -95,7 +97,7 @@ const transition = {
 function onResize({ width: containerWidth, height: containerHeight }) {
     // console.log("RESIZE");
 
-    const height = containerWidth * 0.6;
+    const height = containerHeight;
     const width = containerWidth;
 
     const chartWidth = width - margin.left - margin.right,
@@ -109,6 +111,8 @@ function onResize({ width: containerWidth, height: containerHeight }) {
 
     // AXES
     x.range([0, chartWidth]);
+    y.range([chartHeight, 0]);
+
     d3xAxis.attr("transform", `translate(0, ${y(0)})`).call(
         d3
             .axisBottom(x)
@@ -116,7 +120,6 @@ function onResize({ width: containerWidth, height: containerHeight }) {
             .tickFormat((v) => v)
     );
 
-    y.range([chartHeight, 0]);
     d3yAxis.call(
         d3
             .axisLeft(y)
@@ -241,7 +244,6 @@ function onUpdate() {
     updateLegend();
 
     // Trigger resize
-    const { width, height } = useElementSize(containerRef);
     onResize({ height: height._value, width: width._value });
 }
 

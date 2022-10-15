@@ -50,10 +50,7 @@
             </button>
             <div
                 class="font--body"
-                @click="
-                    activeConfigIndex =
-                        (activeConfigIndex - 1 + chartConfig.length) % config.length
-                "
+                @click="activeConfigIndex = (activeConfigIndex + 1) % chartConfig.length"
             >
                 {{ chartConfig[activeConfigIndex].title }}
             </div>
@@ -138,6 +135,10 @@ const activeConfig = computed(() => chartConfig[activeConfigIndex.value]);
         }
     }
 
+    .chart {
+        height: 20rem;
+    }
+
     .toggle-container {
         position: relative;
         display: flex;
@@ -185,6 +186,9 @@ const activeConfig = computed(() => chartConfig[activeConfigIndex.value]);
                 margin-bottom: $spacingL;
             }
         }
+        .chart {
+            height: 32rem;
+        }
     }
 }
 
@@ -200,6 +204,7 @@ const activeConfig = computed(() => chartConfig[activeConfigIndex.value]);
 
         .chart {
             margin-bottom: $spacingL;
+            height: 40rem;
         }
 
         .toggle-container {

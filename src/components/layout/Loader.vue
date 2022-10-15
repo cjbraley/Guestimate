@@ -52,8 +52,8 @@ const props = defineProps({
 
 .circle {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background: $colorPrimary;
     animation-timing-function: elastic(7, 1.9, 0.5);
@@ -71,11 +71,11 @@ const props = defineProps({
     }
 
     25% {
-        transform: translate(calc(2rem + $spacingM), calc(2rem / 2 + $spacingM/2));
+        transform: translate(calc(1.5rem + $spacingM), calc(1.5rem / 2 + $spacingM/2));
     }
 
     50% {
-        transform: translate(calc(2rem + $spacingM), calc(2rem / 2 + $spacingM/2));
+        transform: translate(calc(1.5rem + $spacingM), calc(1.5rem / 2 + $spacingM/2));
     }
 
     100% {
@@ -93,11 +93,11 @@ const props = defineProps({
     }
 
     25% {
-        transform: translate(0, calc(-2rem / 2 - $spacingM/2));
+        transform: translate(0, calc(-1.5rem / 2 - $spacingM/2));
     }
 
     50% {
-        transform: translate(0, calc(-2rem / 2 - $spacingM/2));
+        transform: translate(0, calc(-1.5rem / 2 - $spacingM/2));
     }
 
     100% {
@@ -115,11 +115,11 @@ const props = defineProps({
     }
 
     25% {
-        transform: translate(0, calc(2rem / 2 + $spacingM/2));
+        transform: translate(0, calc(1.5rem / 2 + $spacingM/2));
     }
 
     50% {
-        transform: translate(0, calc(2rem / 2 + $spacingM/2));
+        transform: translate(0, calc(1.5rem / 2 + $spacingM/2));
     }
 
     100% {
@@ -137,11 +137,11 @@ const props = defineProps({
     }
 
     25% {
-        transform: translate(calc(-2rem - $spacingM), calc(-2rem / 2 - $spacingM/2));
+        transform: translate(calc(-1.5rem - $spacingM), calc(-1.5rem / 2 - $spacingM/2));
     }
 
     50% {
-        transform: translate(calc(-2rem - $spacingM), calc(-2rem / 2 - $spacingM/2));
+        transform: translate(calc(-1.5rem - $spacingM), calc(-1.5rem / 2 - $spacingM/2));
     }
     100% {
         transform: translate(0, 0);

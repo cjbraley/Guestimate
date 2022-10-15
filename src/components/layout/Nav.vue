@@ -12,7 +12,7 @@
                     <div class="nav-link font--button">Home</div>
                 </RouterLink>
                 <a
-                    ref="mailto:cbraley@protonmail.com"
+                    href="mailto:cbraley@protonmail.com"
                     target="_blank"
                     referrerpolicy="noreferer"
                 >
