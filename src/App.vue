@@ -1,4 +1,5 @@
 <template>
+    <Loader v-if="showLoader" :isLoading="isLoading" />
     <header>
         <Nav />
     </header>
@@ -12,19 +13,32 @@
 
 <script setup>
 // IMPORT
-import { onBeforeMount, provide } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+import { onBeforeMount, onMounted, provide, ref } from "vue";
+import { RouterView } from "vue-router";
 import { useBreakpoints } from "@vueuse/core";
 
 import { useCalculatorStore } from "./stores/calculator";
 
 import Nav from "./components/layout/Nav.vue";
 import Footer from "./components/layout/Footer.vue";
+import Loader from "./components/layout/Loader.vue";
 
 // INIT STORE
 const { calculateFromInputs } = useCalculatorStore();
 onBeforeMount(() => {
     calculateFromInputs();
+});
+
+const isLoading = ref(true);
+const showLoader = ref(true);
+onMounted(() => {
+    setTimeout(() => {
+        isLoading.value = false;
+    }, 1000);
+
+    setTimeout(() => {
+        showLoader.value = false;
+    }, 1250);
 });
 
 // BREAKPOINTS
