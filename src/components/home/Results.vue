@@ -136,7 +136,7 @@ const activeConfig = computed(() => chartConfig[activeConfigIndex.value]);
     }
 
     .chart {
-        height: 20rem;
+        height: 16rem;
     }
 
     .toggle-container {

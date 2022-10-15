@@ -15,7 +15,11 @@
                 <EmailIcon class="icon email" />
             </a>
         </div>
-        <p>&copy; {{ new Date().getFullYear() }} Guestimate. All rights reserved.</p>
+        <p>
+            &copy; {{ new Date().getFullYear() }} Guestimate<span class="all-rights"
+                >. All rights reserved.</span
+            >
+        </p>
     </footer>
 </template>
 
@@ -43,6 +47,10 @@ footer {
         color: $colorFontSubtle;
     }
 
+    .all-rights {
+        display: none;
+    }
+
     .media-container {
         display: flex;
         justify-content: center;
@@ -65,6 +73,14 @@ footer {
             &:hover {
                 fill: $colorPrimaryHover;
             }
+        }
+    }
+}
+
+@media (min-width: $breakpointTablet) {
+    footer {
+        .all-rights {
+            display: initial;
         }
     }
 }
