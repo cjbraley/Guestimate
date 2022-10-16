@@ -24,6 +24,7 @@
             <Tooltip :show="showTooltip" :placement="tooltipPlacement">
                 <span>{{ tooltip }}</span>
             </Tooltip>
+            <div class="disabled" v-if="disabled">Calculated based on your other inputs</div>
         </div>
         <div class="error">
             <ErrorMessage :name="name" />
@@ -233,6 +234,23 @@ const handleKeydown = (e) => {
                 }
             }
         }
+
+        &:hover {
+            .disabled {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                height: 1.125rem;
+                transform: translateY(calc(100% + $spacingXS / 2));
+                /* position: absolute; */
+                color: $colorFontSubtle;
+                text-align: left;
+            }
+        }
+    }
+
+    .disabled {
+        display: none;
     }
 
     .error {

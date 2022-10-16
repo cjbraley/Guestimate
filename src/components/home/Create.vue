@@ -148,7 +148,7 @@
                     class="panel__input"
                     label="Savings"
                     disabled
-                    tooltip="Your annual savings based on your income and expenditure"
+                    tooltip="Your annual savings. The difference between your income and expenses."
                 />
                 <Input
                     name="savingsRepayments"
@@ -161,7 +161,7 @@
                     class="panel__input"
                     label="Savings & Repayments"
                     disabled
-                    tooltip="Your annual savings & repayments. Repayments reduce the outstanding balance of your debt which increases your net worth, similar to saving."
+                    tooltip="Your annual savings plus repayments of debt. Repayments reduce debt which increases your net worth, similar to saving."
                 />
                 <h4 class="panel__title">Current</h4>
                 <Input
