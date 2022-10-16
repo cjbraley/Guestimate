@@ -5,7 +5,6 @@ export const useFormatter = () => {
     const currencyFormatter = (value) => {
         const store = useCalculatorStore();
         const { currency } = storeToRefs(store);
-
         const formatter = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: currency.value,

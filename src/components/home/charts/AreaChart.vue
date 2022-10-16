@@ -229,7 +229,7 @@ function onUpdate() {
     temp_text.remove();
 
     margin = {
-        top: props.measures.length * 16,
+        top: props.measures.length * 16 + (props.measures.length - 1) * 12,
         right: max_tick_width + 8,
         bottom: 32,
         left: max_tick_width + 8,
@@ -451,7 +451,7 @@ function updateLegend() {
     const legendCircleRadius = 6;
     const legendGap = 12;
     const legendxOffset = 16;
-    const legendyOffset = props.measures.length * -16;
+    const legendyOffset = props.measures.length * -16 - (props.measures.length - 1) * legendGap;
 
     d3Chart
         .selectAll(".legend-rect")

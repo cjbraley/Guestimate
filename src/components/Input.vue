@@ -14,11 +14,13 @@
                 :name="name"
             />
 
-            <QuestionMark
-                class="icon"
+            <div
+                class="icon-container"
                 @mouseenter="showTooltip = true"
                 @mouseleave="showTooltip = false"
-            />
+            >
+                <QuestionMark class="icon" />
+            </div>
             <Tooltip :show="showTooltip" :placement="tooltipPlacement">
                 <span>{{ tooltip }}</span>
             </Tooltip>
@@ -31,7 +33,7 @@
 
 <script setup>
 // IMPORTS
-import { ref, inject } from "vue";
+import { ref, computed } from "vue";
 import { Field, ErrorMessage } from "vee-validate";
 
 import Tooltip from "./Tooltip.vue";
@@ -104,7 +106,7 @@ const showTooltip = ref(false);
 
 // UPDATE
 
-const formattedVal = props.formatter(props.val);
+const formattedVal = computed(() => props.formatter(props.val), props.val);
 
 const handleKeydown = (e) => {
     const re = new RegExp(props.pattern);
@@ -166,18 +168,25 @@ const handleKeydown = (e) => {
             color: $colorPrimary;
         }
 
+        .icon-container {
+            position: absolute;
+            top: 50%;
+            right: $spacingXS;
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .icon {
             cursor: pointer;
             height: 1.75rem;
             width: 1.75rem;
             fill: $colorPrimary;
             stroke: none;
-
-            position: absolute;
-            right: $spacingM;
-            top: 50%;
-            transform: translateY(-50%);
-
             &:hover {
                 fill: $colorPrimaryHover;
             }
@@ -237,14 +246,18 @@ const handleKeydown = (e) => {
     &.small {
         width: 6.5rem;
 
+        .icon-container {
+            height: calc(1.5rem + $spacingXS * 2);
+            width: 2.5rem;
+            right: 2px;
+            top: initial;
+            bottom: 0;
+            transform: none;
+        }
+
         .icon {
             height: 1.5rem;
             width: 1.5rem;
-
-            right: $spacingXS;
-            top: initial;
-            bottom: 0.125rem;
-            transform: translateY(-50%);
         }
     }
 }

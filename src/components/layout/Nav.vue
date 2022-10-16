@@ -7,7 +7,7 @@
                     <h3>uestimate</h3>
                 </div>
             </RouterLink>
-            <div class="nav-links">
+            <div class="nav-links" v-if="breakpoints.desktop.value">
                 <RouterLink to="/">
                     <div class="nav-link font--button">Home</div>
                 </RouterLink>
@@ -24,7 +24,10 @@
 </template>
 
 <script setup>
+import { inject } from "vue";
 import Logo from "../../assets/icons/Logo.svg";
+
+const breakpoints = inject("breakpoints");
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +41,7 @@ nav {
     .content {
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 100%;
         flex-direction: row;
@@ -87,6 +90,14 @@ nav {
             &:hover {
                 text-decoration: underline;
             }
+        }
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    nav {
+        .content {
+            justify-content: space-between;
         }
     }
 }
