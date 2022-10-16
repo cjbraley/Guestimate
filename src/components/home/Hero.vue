@@ -45,7 +45,7 @@ const breakpoints = inject("breakpoints");
     align-items: center;
     text-align: center;
 
-    padding: $spacingL $mobileSidePadding;
+    padding: $spacingXXL $mobileSidePadding;
     margin-bottom: $spacingL;
 
     background: linear-gradient(

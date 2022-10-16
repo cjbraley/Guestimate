@@ -172,8 +172,10 @@ export const useCalculatorStore = defineStore({
                 );
 
                 const incomeFromAssets = incomeFromStocks + incomeFromBonds + incomeFromCash;
-                const netIncome = year.income + incomeFromAssets - interestOnLiabilites;
+                const allIncome = year.income + incomeFromAssets;
                 const assets = previousYear.assets + savings + incomeFromAssets;
+
+                const allExpenses = year.expenses + interestOnLiabilites;
 
                 const netWorth = assets - liabilities;
 
@@ -196,7 +198,8 @@ export const useCalculatorStore = defineStore({
                     incomeFromBonds,
                     incomeFromCash,
                     incomeFromAssets,
-                    netIncome,
+                    allIncome,
+                    allExpenses,
                     assets,
                     netWorth,
                     totalIncome,

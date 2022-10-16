@@ -40,17 +40,17 @@ export const chartConfig = [
         title: "Saving",
         measures: [
             {
-                accessor: "netIncome",
+                accessor: "allIncome",
                 sign: 1,
                 stack: 1,
-                label: "Income",
+                label: "Income (incl. assets)",
                 color: "#476BE8",
             },
             {
-                accessor: "expenses",
+                accessor: "allExpenses",
                 sign: -1,
                 stack: 2,
-                label: "Expenses",
+                label: "Expenses (incl. debt)",
                 color: "#EC677B",
             },
         ],
